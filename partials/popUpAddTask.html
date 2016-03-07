@@ -1,0 +1,55 @@
+<button ng-click="showmee=true">Add New Task</button>
+<hr style="width: 1400px;margin-top: 1px;">
+
+<div id="addTaskDiv">
+    <!--    show task div starts from here-->
+    <div>
+        <div id="showTaskId" class="showTask" ng-repeat="task in taskArray" style="float:left;margin-left: 10px;
+">
+            <!--<img src="500px-Apple_Computer_Logo.svg_.png">-->
+
+
+            <table class="table" cellpadding="4" cellspacing="4" border="1" style="align: left;border-collapse: collapse; border: solid 1px #000">
+
+                <tr>
+                    <td>{{task.newTaskIdNo}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{task.newTaskDescription}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{task.newTaskDate}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!--    show task div ends from here-->
+
+
+    <!--    popup div starts from here-->
+    <div id="popupAddTask" ng-show="showmee">
+        <button ng-click="showmee=false" class="close_button">X</button>
+        <center>
+            <h2 style="letter-spacing: 5px;">Add Task</h2>
+            <form id="AddTaskform" name="AddTaskform">
+                <input id="TaskId" name="TaskId" ng-model="TaskId" placeholder="Task Id" type="text" required>
+                <br>
+                <br>
+                <textarea id="TaskDescription" name="Task Description" ng-model="TaskDescription" placeholder="Task Description" required></textarea>
+                <br>
+                <br>
+                <input type="date" name="Task End date" ng-model="TaskEndDate" required>
+                <!--                <p ng-model="EndDate" style="visibility:false";>{{TaskEndDate | date: "yyyy-MM-dd"}}</p>-->
+                <br>
+                <br>
+                <button ng-click="submitTask();showmee=false" ng-disabled="AddTaskform.$invalid">Submit</button>
+            </form>
+        </center>
+    </div>
+    <!--    popup div ends from here-->
+
+</div>

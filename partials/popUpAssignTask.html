@@ -1,0 +1,31 @@
+<hr style="width: 1400px;margin-bottom: 1px;">
+<button ng-click="showme=true">Add Assignment person</button>
+<hr style="width: 1400px;margin-top: 1px;">
+
+<div id="assignTaskDiv">
+    <!--    show name div starts from here-->
+    <div class="DivNameShow" ng-repeat="employeeName in nameArray" style="float:left; height:250px; width:150px;margin-left: 1px;padding:4;border-collapse: collapse; border: solid 1px #000
+">
+        <div id="showAssignedID" class="showAssigned" style="padding:4;border-collapse: collapse; border: solid 1px #000
+">
+            <center> {{employeeName.name}} </center>
+        </div>
+    </div>
+
+    <!--    show name div ends from here-->
+    <!--    name popup div starts from here-->
+    <div id="popupAssignTask" ng-show="showme">
+        <button class="close_button" ng-click="showme=false">X</button>
+        <center>
+            <h2 style="letter-spacing: 5px;">Assign Task</h2>
+            <form id="AssignTaskform" name="AssignTaskform">
+                <input id="AssignedPerson" name="AssignedPerson" ng-model="AssignedPerson" placeholder="Enter an Employee name" type="text" required>
+                <br>
+                <br>
+                <br>
+                <button ng-click="submitName();showme=false" style="float:center" ng-disabled="AssignTaskform.$invalid">Submit</button>
+            </form>
+        </center>
+    </div>
+    <!--    name popup div starts from here-->
+</div>
