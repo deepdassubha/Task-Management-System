@@ -6,7 +6,8 @@ $(document).click(function () {
          
             swapObj = $(this).children();
         }
-    });
+    } );
+    
 
     $(".DivNameShow").droppable({
         activeClass: "ui-state-highlight",
