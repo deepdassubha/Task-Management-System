@@ -4,12 +4,35 @@
 
 <div id="assignTaskDiv">
     <!--    show name div starts from here-->
-    <div class="DivNameShow" ng-repeat="employeeName in nameArray" style="float:left; height:250px; width:150px;margin-left: 1px;padding:4;border-collapse: collapse; border: solid 1px #000
+    <div class="DivNameShow" ng-repeat="employeeName in nameArray" data-indexnumofname={{$index}} style="float:left; height:250px; width:150px;margin-left: 1px;padding:4;border-collapse: collapse; border: solid 1px #000
 ">
+
         <div id="showAssignedID" class="showAssigned" style="padding:4;border-collapse: collapse; border: solid 1px #000
 ">
-            <center> {{employeeName.name}} </center>
+
+            <center>
+                {{employeeName.name}}
+            </center>
         </div>
+        <div ng-repeat="eachTask in employeeName.task">
+<!--        {{employeeName.task}}-->
+        <table class="table" cellpadding="4" cellspacing="4" border="1" style="align: left;border-collapse: collapse; border: solid 1px #000">
+
+                <tr>
+                    <td>{{eachTask.newTaskIdNo}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{eachTask.newTaskDescription}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{eachTask.newTaskDate}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
     </div>
 
     <!--    show name div ends from here-->
