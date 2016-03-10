@@ -1,12 +1,30 @@
-app.service('updationService', function () {
+app.service('updationService', function (dataService) {
+    var currentTaskArr;
+    var currentNameArr;
+    //var rePushTaskArr;
     return {
-        uptodateTaskArray: function (taskArray, index) {
+        uptodateTaskArray: function (appArr, index) {
+            var taskArray = appArr.taskList;
+            currentTaskArr = taskArray.splice(index, 1);
+            appArr.taskList = taskArray;
+            dataService.updateStorageData(appArr);
 
-            return taskArray.splice(index, 1);
+        },
+        uptodateNameArray: function (appArr, index) {
+
+            var nameArray = appArr.assignmentPersonList;
+            console.log(nameArray)
+            nameArray[index].task.push(currentTaskArr[0]);
+            appArr.assignmentPersonList = nameArray;
+            dataService.updateStorageData(appArr);
+
         }
-//        uptodateNameArray: function (nameArray, index) {
-//            return nameArray.push(index, 1);
-//             
+//        uptodateTaskArrayToPushBack: function (appArr, index) {
+//            var taskArray = appArr.taskList;
+//            taskArray.push(currentNameArr[0]);
+//            appArr.taskList = taskArray;
+//            dataService.updateStorageData(appArr);
+//
 //        }
     }
 });
