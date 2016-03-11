@@ -1,4 +1,4 @@
-app.directive("assigntaskDirective", function (dataService, updationService) {
+app.directive("assigntaskDirective", function (dataService, updationService, dragDropService) {
     return {
         restrict: "ACE",
         link: function (scope, elem, attrs) {
@@ -7,10 +7,14 @@ app.directive("assigntaskDirective", function (dataService, updationService) {
             scope.submitName = function () {
                 scope.nameListArr = dataService.storeNewName(scope.AssignedPerson);
                 scope.nameArray = scope.nameListArr.assignmentPersonList;
+                console.log(scope.nameListArr);
                 scope.AssignedPerson = '';
+                dragDropService.dragDropOps(scope.nameListArr);
             };
+            if (scope.nameArray !== undefined) {
+                dragDropService.dragDropOps(scope.nameListArr);
+            }
         },
-
         templateUrl: "partials/popUpAssignTask.html"
     }
 });

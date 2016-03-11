@@ -6,24 +6,11 @@
     <div>
         <div id="showTaskId" class="showTask" ng-repeat="task in taskArray" data-indexnumoftask={{$index}} style="float:left;margin-left: 10px;
 ">
-            <!--<img src="500px-Apple_Computer_Logo.svg_.png">-->
-
-
-            <table class="table" cellpadding="4" cellspacing="4" border="1" style="align: left;border-collapse: collapse; border: solid 1px #000">
-
-                <tr>
-                    <td>{{task.newTaskIdNo}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>{{task.newTaskDescription}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>{{task.newTaskDate}}
-                    </td>
-                </tr>
-            </table>
+            <div class="table">
+                <div class="tableContent">{{task.newTaskIdNo}}</div>
+                <div class="tableContent">{{task.newTaskDescription}}</div>
+                <div class="tableContent">{{task.newTaskDate}}</div>
+            </div>
         </div>
     </div>
 
@@ -43,7 +30,6 @@
                 <br>
                 <br>
                 <input type="date" name="Task End date" ng-model="TaskEndDate" required>
-                <!--                <p ng-model="EndDate" style="visibility:false";>{{TaskEndDate | date: "yyyy-MM-dd"}}</p>-->
                 <br>
                 <br>
                 <button ng-click="submitTask();showmee=false" ng-disabled="AddTaskform.$invalid">Submit</button>
