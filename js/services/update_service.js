@@ -13,7 +13,7 @@ app.service('updationService', function (dataService) {
         uptodateNameArray: function (appArr, index) {
 
             var nameArray = appArr.assignmentPersonList;
-            console.log(nameArray)
+            console.log(nameArray);
             nameArray[index].task.push(currentTaskArr[0]);
             appArr.assignmentPersonList = nameArray;
             dataService.updateStorageData(appArr);

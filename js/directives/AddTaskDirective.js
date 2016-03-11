@@ -6,15 +6,17 @@ app.directive("addtaskDirective", function ($filter, $timeout, dataService, upda
             scope.taskArray = scope.appArr.taskList;
             scope.submitTask = function () {
                 scope.date = $filter('date')(scope.TaskEndDate, 'dd-MM-yyyy');
-                scope.taskListArr = dataService.storeNewTask(scope.TaskId, scope.TaskDescription, scope.date);
-                scope.taskArray = scope.taskListArr.taskList;
+                scope.appArr = dataService.storeNewTask(scope.TaskId, scope.TaskDescription, scope.date);
+                scope.taskArray = scope.appArr.taskList;
                 scope.TaskId = '';
                 scope.TaskDescription = '';
                 scope.TaskEndDate = '';
-            };
-            $timeout(function () {
+                console.log(scope.appArr);
                 dragDropService.dragDropOps(scope.appArr);
-            }, 0);
+            };
+            if (scope.taskArray !== undefined) {
+                dragDropService.dragDropOps(scope.appArr);
+            }
         },
         templateUrl: "partials/popUpAddTask.html"
     }

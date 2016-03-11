@@ -1,5 +1,5 @@
 <hr style="width: 1400px;margin-bottom: 1px;">
-<button ng-click="showme=true">Add Assignment person</button>
+<button ng-click="showme=true;">Add Assignment person</button>
 <hr style="width: 1400px;margin-top: 1px;">
 
 <div id="assignTaskDiv">
@@ -9,30 +9,18 @@
 
         <div id="showAssignedID" class="showAssigned" style="padding:4;border-collapse: collapse; border: solid 1px #000
 ">
-
             <center>
                 {{employeeName.name}}
             </center>
         </div>
         <div ng-repeat="eachTask in employeeName.task">
-<!--        {{employeeName.task}}-->
-        <table class="table" cellpadding="4" cellspacing="4" border="1" style="align: left;border-collapse: collapse; border: solid 1px #000">
 
-                <tr>
-                    <td>{{eachTask.newTaskIdNo}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>{{eachTask.newTaskDescription}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>{{eachTask.newTaskDate}}
-                    </td>
-                </tr>
-            </table>
+            <div class="table" >
+                <div class="tableContent">{{eachTask.newTaskIdNo}}</div>
+                <div class="tableContent">{{eachTask.newTaskDescription}}</div>
+                <div class="tableContent">{{eachTask.newTaskDescription}}</div>
+            </div>
         </div>
-        
     </div>
 
     <!--    show name div ends from here-->

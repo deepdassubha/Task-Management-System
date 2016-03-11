@@ -69,6 +69,12 @@ form {
     overflow-x: hidden;
 }
 .table {
+    width: 130px;
     position: relative;
-    margin: 2px;
+    margin: 4px;
+}
+.tableContent{
+    border: 1px solid;
+    border-color: black;
+    text-align: center;
 }
